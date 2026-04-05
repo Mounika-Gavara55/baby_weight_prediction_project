@@ -1,0 +1,37 @@
+{% extends 'users/userbase.html' %}
+{% block content %}
+
+<h2 align="center">Model Comparison Results</h2>
+
+<center>
+
+<table border="1" cellpadding="10">
+<tr>
+<th>Algorithm</th>
+<th>Accuracy</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1 Score</th>
+</tr>
+
+{% for model, values in results.items %}
+<tr>
+<td>{{ model }}</td>
+<td>{{ values.accuracy }}</td>
+<td>{{ values.precision }}</td>
+<td>{{ values.recall }}</td>
+<td>{{ values.f1 }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<h2 style="color:green;">Best Model: {{ best_model }}</h2>
+
+{% if error %}
+<h3 style="color:red;">{{ error }}</h3>
+{% endif %}
+
+</center>
+
+{% endblock %}

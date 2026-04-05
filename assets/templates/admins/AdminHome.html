@@ -1,0 +1,35 @@
+{% extends 'admins/adminbase.html' %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block admin_home %}active{% endblock %}
+
+{% block content %}
+    <style>
+        /* Custom CSS */
+        .jumbotron {
+            background: linear-gradient(to right, #007bff, #00c6ff);
+            color: white;
+            padding: 50px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 50px auto;
+            max-width: 900px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+    </style>
+<br><br><br><br><br>
+    <div class="jumbotron">
+        <h1>Admin Here</h1>
+        <p>Predicting low birth weight (LBW) in babies is important because it can help healthcare providers identify potential issues early and intervene to improve outcomes. LBW, defined as a birth weight less than 2,500 grams (5.5 pounds), increases the risk of complications for the baby.</p>
+    </div>
+{% endblock %}

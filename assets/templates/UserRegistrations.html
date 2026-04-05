@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container" style="margin-top: 150px;">
+    <div class="row justify-content-center">
+        <div class="col-md-8 glass-card p-5">
+            <h2 class="text-center p-2 text-primary font-weight-bold">User Sign up</h2>
+            <form action="{% url 'UserRegisterActions' %}" method="POST" class="mt-4">
+                {% csrf_token %}
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="id_name">User Name</label>
+                        {{ form.name }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="id_loginid">Login Id</label>
+                        {{ form.loginid }}
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="id_email">Email</label>
+                        {{ form.email }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="id_mobile">Mobile</label>
+                        {{ form.mobile }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="id_password">Password</label>
+                    {{ form.password }}
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="id_locality">Locality</label>
+                        {{ form.locality }}
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="id_city">City</label>
+                        {{ form.city }}
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="id_state">State</label>
+                        {{ form.state }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="id_status">Status</label>
+                    {{ form.status }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_address">Address</label>
+                    {{ form.address }}
+                </div>
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary px-5">Register</button>
+                    <button type="reset" class="btn btn-outline-dark px-5">Reset</button>
+                </div>
+
+                {% if messages %}
+                {% for message in messages %}
+                <p align="center" class="text-primary mt-3">{{ message }}</p>
+                {% endfor %}
+                {% endif %}
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Add some custom styling for form fields within glass card */
+    .glass-card input,
+    .glass-card select,
+    .glass-card textarea {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .glass-card label {
+        font-weight: 600;
+        color: var(--dark);
+    }
+</style>
+
+{% endblock %}
